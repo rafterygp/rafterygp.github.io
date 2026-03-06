@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRCZ Pipeline | Patricio Raftery García</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">← Back to Index</a>
+    </nav>
+
+    <main>
+        <h2>JRCZ Spatial Query Engine</h2>
+        
+        <div class="meta-data" style="margin-bottom: 25px; border-bottom: 1px dashed #1f3a47; padding-bottom: 15px;">
+            <span style="color:#45a29e">Client:</span> Joint Research Center Zeeland (JRCZ) / HZ University<br>
+            <span style="color:#45a29e">Role:</span> Backend & Infrastructure Developer<br>
+            <span style="color:#45a29e">Tech Stack:</span> PHP, Laravel, MySQL, SQLite, GeoJSON, Bcrypt<br>
+            <span style="color:#45a29e">Repository:</span> <a href="https://github.com/rafterygp/jrcz-extraction-pipeline" target="_blank">[ View Source ]</a>
+        </div>
+
+        <div class="project-brief">
+            <p>
+                <strong class="highlight-orange">The Problem:</strong> The JRCZ data science lab models localized environmental phenomena. To do so effectively, researchers previously had to manually filter through nationwide GeoPackage (GPKG) databases to extract specific political boundaries—a localized process taking hours per request.
+            </p>
+            <p>
+                <strong class="highlight-cyan">The Solution:</strong> I engineered an automated data ingestion and retrieval application to replace this manual workflow. This process is now automated with near-instant spatial extraction of complex coordinate arrays into standard GeoJSON structures. The software is currently in active production use.
+            </p>
+        </div>
+
+        <h3>Technical Specifications</h3>
+        <div class="tech-module" style="margin-bottom: 40px;">
+            <ul class="realistic-specs">
+                <li>Robust file ingestion processing to handle nationwide spatial data inputs.</li>
+                <li>Implement basic user authentication with password hashing and session security.</li>
+                <li>Design a localized data retrieval pipeline of complex polygon data to replace manual hours.</li>
+                <li>Algorithmic transformation to parse spatial data from an existing SQLite-based GeoPackage.</li>
+                <li>Co-designed data-filtering logic based on common localized phenomena.</li>
+                <li>Managed parallel local (SQLite) and main (MySQL) database environments with Laravel tools.</li>
+            </ul>
+        </div>
+
+        <section class="visibility-spread">
+            <h3 style="border-bottom: 1px solid #1f3a47; padding-bottom: 8px;">Interface & Spatial Rendering</h3>
+            <p style="margin-bottom: 40px;">The map interface was designed to cleanly parse high-density polygon data, breaking down complex nationwide coordinates into an easily readable spread.</p>
+            
+            <figure class="bjarne-figure">
+                <img src="src/searchResults.png" alt="Map interface showing distinct search result clusters.">
+                <figcaption>
+                    <strong>Search Cluster View:</strong> Breaks down search results to increase localized parseability of complex data.
+                </figcaption>
+            </figure>
+
+            <figure class="bjarne-figure">
+                <img src="src/provinceSelection.png" alt="Map interface with whole provinces highlighted.">
+                <figcaption>
+                    <strong>Province Selection:</strong> Filter whole provinces from a nationwide GeoPackage with a quick localized selection.
+                </figcaption>
+            </figure>
+
+            <figure class="bjarne-figure">
+                <img src="src/gemeente&hover.png" alt="Map interface with specific municipal highlight on hover.">
+                <figcaption>
+                    <strong>Gemeente & Hover:</strong> Provides visual quick Municipality identification and a localized query on hover.
+                </figcaption>
+            </figure>
+        </section>
+
+    </main>
+
+    <footer style="margin-top: 50px; border-top: 1px solid #1f3a47; padding-top: 15px; font-size: 0.8em; color: #45a29e;">
+        EOF. SYSTEM LAST UPDATED: MARCH 2026.
+    </footer>
+
+</body>
+</html>

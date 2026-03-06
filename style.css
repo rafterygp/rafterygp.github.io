@@ -1,0 +1,377 @@
+/* GLOBAL BASE & BACKGROUND LAYERS */
+body {
+    margin: 40px auto;
+    max-width: 850px;
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    color: #8b9cb0; 
+    padding: 0 15px;
+    position: relative;
+    /* Subtle CRT Scanline effect */
+    background-color: #080b12;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(102, 252, 241, 0.02) 2px, rgba(102, 252, 241, 0.02) 4px);
+}
+
+
+
+body::before {
+    /* (Hex grid settings...) */
+    z-index: -3; /* Lowest layer */
+}
+
+body::after {
+    /* (Vignette/Glass settings...) */
+    z-index: -2; /* Just above the hexes */
+}
+@keyframes drift {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 138.56px; } 
+}
+
+/* SCROLLBAR & SELECTION OVERRIDES */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #080b12; border-left: 1px solid #1f3a47; }
+::-webkit-scrollbar-thumb { background: #1f3a47; }
+::-webkit-scrollbar-thumb:hover { background: #ff9900; }
+::selection { background-color: #ff9900; color: #080b12; }
+
+/* TYPOGRAPHY */
+h1, h2, h3 { 
+    color: #66fcf1; 
+    font-weight: normal; 
+    letter-spacing: 1px;
+    margin: 0; 
+    transition: color 0.2s ease;
+}
+
+h1 { font-size: 2.2em; margin-bottom: 5px; }
+h1::before { content: "root@"; color: #8b9cb0; font-size: 0.7em; vertical-align: middle; }
+/* The blinking cursor attached to h1 via JS */
+.cursor { display: inline-block; width: 10px; height: 1.2em; background-color: #ff9900; vertical-align: bottom; margin-left: 5px; animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+h2 { 
+    font-size: 1.2em; 
+    border-bottom: 1px solid #1f3a47; 
+    padding-bottom: 5px; 
+    margin-top: 45px; 
+    margin-bottom: 20px; 
+    display: block;
+}
+h2::before { content: "./"; color: #8b9cb0; }
+
+h3 { font-size: 1.05em; margin-bottom: 8px; }
+
+/* LINKS & HOVERS */
+a { color: #66fcf1; text-decoration: none; border-bottom: 1px dotted #1f3a47; transition: all 0.15s ease-in-out; }
+a:visited { color: #45a29e; }
+a:hover, a:active { color: #ff9900; border-bottom: 1px solid #ff9900; }
+
+/* GRID SYSTEM */
+.data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; margin-top: 15px; }
+
+/* INTERACTIVE PROJECT/MISC BLOCKS */
+.grid-box {
+    border: 1px solid #1f3a47;
+    padding: 18px;
+    background-color: rgba(31, 58, 71, 0.1);
+    transition: all 0.2s ease;
+    display: block; 
+    border-bottom: 1px solid #1f3a47; 
+}
+.grid-box:hover {
+    border-color: #ff9900;
+    background-color: rgba(255, 153, 0, 0.03);
+    cursor: pointer;
+}
+.grid-box:hover h3 { color: #ff9900; text-shadow: 0 0 8px rgba(255, 153, 0, 0.3); }
+.grid-box p { margin: 0; font-size: 0.9em; color: #8b9cb0; }
+
+/* STATIC TECHNICAL BLOCKS (No Hover Effect) */
+.tech-module {
+    border-left: 2px solid #66fcf1;
+    padding: 18px;
+    background-color: rgba(31, 58, 71, 0.1);
+}
+.tech-label {
+    font-size: 0.85em;
+    color: #45a29e;
+    margin-bottom: 8px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.tech-data { color: #e2a73a; font-size: 0.95em; line-height: 1.4; }
+
+/* UTILS & ASCII */
+.sys-text { color: #45a29e; font-size: 0.9em; margin-bottom: 15px; line-height: 1.4; }
+.ascii-art { font-size: 0.7em; color: #1f3a47; margin-bottom: 20px; letter-spacing: 0; }
+ul { padding-left: 0; list-style-type: none; margin-top: 5px; }
+li::before { content: "> "; color: #45a29e; }
+li { margin-bottom: 8px; font-size: 0.95em; }
+
+/* CREDENTIALS LIST (Larger font for degrees/documents) */
+.credentials-list {
+    font-size: 1.1em; 
+    margin-top: 15px; 
+}
+.credentials-list li {
+    margin-bottom: 12px; 
+}
+
+/* SPECIFIC PROJECT BACKGROUND: GEOSPATIAL PIPELINE */
+#jrcz-pipeline {
+    position: relative; /* Defines coordinate space for the pseudo-element */
+    overflow: hidden;   /* Keeps the pseudo-element inside the rounded borders */
+    z-index: 1;         /* Lifts the content above the new background image */
+}
+
+/* THE BACKGROUND IMAGE LAYER */
+#jrcz-pipeline::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* LINKING YOUR IMAGE HERE */
+    background-image: url('src/JRCZ.png');
+    
+    background-size: cover;    /* Or 'contain' if it looks too cropped */
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* CRITICAL SETTINGS: Seating it behind text and at low opacity */
+    opacity: 0.06;  /* Extremely faint to avoid clashing with text */
+    z-index: -1;   /* Places it behind the h3 and p tags */
+}
+/* SPECIFIC PROJECT BACKGROUND: MR. H ENGINE */
+#mr-h-engine {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#mr-h-engine::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* LINKING THE PHYSICS IMAGE HERE */
+    background-image: url('src/mr-h-physics.png');
+    
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Keeping opacity identical to JRCZ for consistency */
+    opacity: 0.06;  
+    z-index: -1;   
+}
+
+/* Ensure Mr. H also has position relative to maintain consistent stack */
+.grid-box {
+    position: relative;
+    z-index: 1; /* Both interactive blocks need this */
+    /* ... rest of your .grid-box styles remain identical */
+}
+
+/* ADD THIS TO YOUR CSS (And delete the old ribbon code) */
+.project-box h3 {
+    display: block;
+    border-bottom: 1px solid rgba(102, 252, 241, 0.2); /* Faint structural line */
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    /* This creates a dark halo around the text to separate it from the image */
+    text-shadow: 0px 2px 5px rgba(8, 11, 18, 1), 0px 0px 10px rgba(8, 11, 18, 1); 
+}
+
+/* Update the hover state to match the orange */
+.grid-box.project-box:hover h3 {
+    border-bottom-color: rgba(255, 153, 0, 0.4);
+    text-shadow: 0px 2px 5px rgba(8, 11, 18, 1), 0px 0px 8px rgba(255, 153, 0, 0.4);
+}
+
+/* realistic specs bullet list */
+.realistic-specs li::before {
+    content: "> ";
+    color: #45a29e;
+}
+.realistic-specs li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: #e2a73a; /* Established technical data color */
+}
+
+/* New section formatting on pipeline page */
+.visibility-spread {
+    margin-top: 50px;
+}
+
+.visibility-spread h3 {
+    margin-bottom: 15px;
+}
+
+/* structured image gallery / spread */
+.lead-figure {
+    margin-bottom: 25px; /* Separate lead item from grid */
+    padding: 0; /* Let image fill up to borders */
+    overflow: hidden; /* For clean border edges */
+}
+.lead-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 0;
+}
+.lead-figure h3, .lead-figure p {
+    padding: 15px 18px; /*established padding back for text */
+}
+
+/* Staggered but formal spread of remaining images */
+.project-spread {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* slightly narrower min-width for staggered spread */
+}
+
+.spread-item {
+    margin: 0; /* established static padding from global styles */
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Let image fill up to borders */
+    overflow: hidden; /* For clean border edges */
+}
+.spread-item img {
+    width: 100%;
+    height: 200px; /* Force consistent image height */
+    object-fit: cover; /* Established static setting */
+    border-bottom: 1px solid #1f3a47; /* Separator line */
+    margin-bottom: 0;
+}
+.spread-item h3, .spread-item figcaption {
+    padding: 15px 18px; /* established padding back for text */
+}
+.spread-item figcaption {
+    font-size: 0.85em; /* established static typography for descriptions */
+    line-height: 1.5; /* established global setting */
+    margin: 0;
+    flex-grow: 1; /* Pushes content down on smaller items for consistency */
+}
+
+/* =========================================
+   PROJECT PAGE SPECIFICS
+========================================= */
+
+/* High-contrast intro block to fix the "blob" issue */
+.project-brief {
+    background-color: rgba(31, 58, 71, 0.1);
+    border-left: 3px solid #66fcf1;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+}
+.project-brief p {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.project-brief p:last-child {
+    margin-bottom: 0;
+}
+.highlight-orange { color: #e2a73a; }
+.highlight-cyan { color: #66fcf1; }
+
+/* realistic specs bullet list */
+.realistic-specs li::before {
+    content: "> ";
+    color: #45a29e;
+}
+.realistic-specs li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: #e2a73a;
+}
+
+/* "Bjarne DNA" Centered Figures */
+.bjarne-figure {
+    text-align: center;
+    margin: 0 0 50px 0;
+    padding: 0;
+}
+.bjarne-figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px auto;
+    border: 1px solid #1f3a47;
+    background-color: #080b12; /* Fills empty space if image doesn't load instantly */
+}
+.bjarne-figure figcaption {
+    font-size: 0.9em;
+    color: #8b9cb0;
+    max-width: 85%;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+.bjarne-figure figcaption strong {
+    color: #45a29e;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 1.05em;
+}
+
+
+/* =========================================
+   PROJECT BOX BACKGROUNDS & HOVERS
+========================================= */
+
+/* Ensure the grid boxes can contain the absolute background */
+.grid-box.project-box {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* 1. JRCZ Pipeline Background */
+#jrcz-pipeline::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('src/searchResults.png'); 
+    background-size: cover;    
+    background-position: center;
+    opacity: 0.15; /* HIGHER BASELINE VISIBILITY */
+    z-index: -1;   
+    transition: opacity 0.3s ease-in-out; 
+}
+
+/* 2. Mr. H Engine Background */
+#mr-h-engine::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('src/mr-h-physics.png');
+    background-size: cover; 
+    background-position: center;
+    opacity: 0.15; /* HIGHER BASELINE VISIBILITY */
+    z-index: -1;   
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* THE HOVER EFFECT: Brightens the background image */
+#jrcz-pipeline:hover::before,
+#mr-h-engine:hover::before {
+    opacity: 0.25; 
+}
+
+/* Text shadow adjustment to keep text readable over the brightened image */
+.grid-box.project-box h3 {
+    display: block;
+    border-bottom: 1px solid rgba(102, 252, 241, 0.2); 
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    text-shadow: 0px 2px 5px rgba(8, 11, 18, 1), 0px 0px 10px rgba(8, 11, 18, 1); 
+    transition: all 0.3s ease;
+}
+
+.grid-box.project-box:hover h3 {
+    border-bottom-color: rgba(255, 153, 0, 0.4);
+    text-shadow: 0px 2px 5px rgba(8, 11, 18, 1), 0px 0px 8px rgba(255, 153, 0, 0.6);
+    color: #ff9900;
+}
