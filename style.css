@@ -1,3 +1,4 @@
+
 /* GLOBAL BASE & BACKGROUND LAYERS */
 body {
     margin: 40px auto;
@@ -141,7 +142,7 @@ li { margin-bottom: 8px; font-size: 0.95em; }
     background-repeat: no-repeat;
     
     /* CRITICAL SETTINGS: Seating it behind text and at low opacity */
-    opacity: 0.06;  /* Extremely faint to avoid clashing with text */
+    opacity: 0.30;  /* Extremely faint to avoid clashing with text */
     z-index: -1;   /* Places it behind the h3 and p tags */
 }
 /* SPECIFIC PROJECT BACKGROUND: MR. H ENGINE */
@@ -336,7 +337,7 @@ li { margin-bottom: 8px; font-size: 0.95em; }
     background-image: url('src/searchResults.png'); 
     background-size: cover;    
     background-position: center;
-    opacity: 0.15; /* HIGHER BASELINE VISIBILITY */
+    opacity: 0.3; 
     z-index: -1;   
     transition: opacity 0.3s ease-in-out; 
 }
@@ -349,7 +350,7 @@ li { margin-bottom: 8px; font-size: 0.95em; }
     background-image: url('src/mr-h-physics.png');
     background-size: cover; 
     background-position: center;
-    opacity: 0.15; /* HIGHER BASELINE VISIBILITY */
+    opacity: 0.3; 
     z-index: -1;   
     transition: opacity 0.3s ease-in-out;
 }
@@ -357,7 +358,7 @@ li { margin-bottom: 8px; font-size: 0.95em; }
 /* THE HOVER EFFECT: Brightens the background image */
 #jrcz-pipeline:hover::before,
 #mr-h-engine:hover::before {
-    opacity: 0.25; 
+    opacity: 0.50; 
 }
 
 /* Text shadow adjustment to keep text readable over the brightened image */
@@ -375,3 +376,23 @@ li { margin-bottom: 8px; font-size: 0.95em; }
     text-shadow: 0px 2px 5px rgba(8, 11, 18, 1), 0px 0px 8px rgba(255, 153, 0, 0.6);
     color: #ff9900;
 }
+
+/* Terminal Button for Document Links */
+.terminal-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid #1f3a47;
+    background-color: rgba(8, 11, 18, 0.5);
+    color: #45a29e;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+.terminal-btn:hover {
+    border-color: #66fcf1;
+    color: #66fcf1;
+    background-color: rgba(102, 252, 241, 0.05);
+}
+
+
+
