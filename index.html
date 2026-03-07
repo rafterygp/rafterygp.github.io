@@ -63,12 +63,12 @@
             </div>
         </section>
 
-<section>
+        <section>
             <h2>Projects</h2>
             <div class="data-grid">
                 <a href="jrcz-pipeline.html" class="grid-box project-box" id="jrcz-pipeline">
                     <h3>JRCZ GPKG Extractor</h3>
-                    
+
                     <div class="tech-tags">
                         <span class="tech-tag">PHP 8.5</span>
                         <span class="tech-tag">Laravel</span>
@@ -76,12 +76,13 @@
                         <span class="tech-tag">GeoJSON</span>
                     </div>
 
-                    <p>Laravel based pipeline tool focused on usability and ease of use, created to simplify the process of finding and selecting </p>
+                    <p>Laravel based pipeline tool focused on usability and ease of use, created to simplify the process
+                        of finding and selecting </p>
                 </a>
 
                 <a href="mr-h-engine.html" class="grid-box project-box" id="mr-h-engine">
                     <h3>Educational Game "Mr. H"</h3>
-                    
+
                     <div class="tech-tags">
                         <span class="tech-tag">TypeScript</span>
                         <span class="tech-tag">OOP</span>
@@ -89,7 +90,8 @@
                         <span class="tech-tag">State Management</span>
                     </div>
 
-                    <p>TypeScript interactive game featuring custom collision system, state management & OOP. Created for kids to educate about online safety.</p>
+                    <p>TypeScript interactive game featuring custom collision system, state management & OOP. Created
+                        for kids to educate about online safety.</p>
                 </a>
             </div>
         </section>
@@ -109,7 +111,8 @@
 
                 <a href="athletics.html" class="grid-box">
                     <h3>Athletics</h3>
-                    <p>Taekwondo (8x Gold combat), State Basketball Championship records, PADI Open Water, Boardsports</p>
+                    <p>Taekwondo (8x Gold combat), State Basketball Championship records, PADI Open Water, Boardsports
+                    </p>
                 </a>
 
                 <a href="logs.html" class="grid-box">
@@ -122,10 +125,11 @@
 
     <footer
         style="margin-top: 50px; border-top: 1px solid #1f3a47; padding-top: 15px; font-size: 0.8em; color: #45a29e;">
-        EOF. SYSTEM LAST UPDATED: MARCH 2026.
+        Last updated: 03/26.
     </footer>
 
     <script>
+        //Name animation
         document.addEventListener('DOMContentLoaded', () => {
             const titleElement = document.getElementById('sys-title');
             const targetText = "Patricio Raftery García";
@@ -144,6 +148,24 @@
             }
 
             setTimeout(typeChar, 400);
+        });
+
+        //Scroll memory 
+        window.addEventListener('DOMContentLoaded', () => {
+            const scrollPos = sessionStorage.getItem('sidebar-scroll');
+            if (scrollPos) {
+                window.scrollTo({
+                    top: parseInt(scrollPos),
+                    behavior: 'instant' 
+                });
+            }
+        });
+        let isScrolling;
+        window.addEventListener('scroll', () => {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                sessionStorage.setItem('sidebar-scroll', window.scrollY);
+            }, 100);
         });
     </script>
 </body>
