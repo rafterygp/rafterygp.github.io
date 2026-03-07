@@ -394,5 +394,35 @@ li { margin-bottom: 8px; font-size: 0.95em; }
     background-color: rgba(102, 252, 241, 0.05);
 }
 
+/* TECHNOLOGY TAGS */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 15px 0;
+}
 
+.tech-tag {
+    font-size: 0.75em;
+    font-family: 'Consolas', monospace;
+    color: #66fcf1;
+    background: rgba(102, 252, 241, 0.05);
+    border: 1px solid rgba(31, 58, 71, 0.8);
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
 
+/* Hover effect for tags inside interactive boxes */
+.grid-box:hover .tech-tag {
+    border-color: #ff9900;
+    color: #ff9900;
+    background: rgba(255, 153, 0, 0.05);
+}
+
+/* Special styling for "In Progress" or main tech in modules */
+.tech-module .tech-tag {
+    background: rgba(31, 58, 71, 0.3);
+}
