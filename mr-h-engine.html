@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr. H Engine | Patricio Raftery García</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <nav>
@@ -13,32 +15,75 @@
     </nav>
 
     <main>
-        <h2>Object-Oriented Educational Engine ("Mr. H")</h2>
-        
-        <div class="meta-data">
-            Type: Academic Project (OOP Architecture)<br>
-            Role: Core Mechanics & State Logic<br>
-            Tech Stack: TypeScript, ES6 Modules, HTML5 Canvas<br>
-            Repository: <a href="https://github.com/rafgp/your-repo-link-here" target="_blank">[ View Source ]</a>
+        <h2>Educational Game Engine "Mr. H"</h2>
+
+        <div class="project-metadata">
+            <div class="meta-item">
+                <span class="meta-label">Type</span>
+                <span class="meta-value">Academic (OOP Architecture)</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Role</span>
+                <span class="meta-value">Core Mechanics & State Logic</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Repository</span>
+                <span class="meta-value"><a href="https://github.com/rafgp/mr-h-engine" target="_blank">[ View Source
+                        ]</a></span>
+            </div>
+            <div class="meta-item" style="grid-column: 1 / -1;">
+                <span class="meta-label">Stack</span>
+                <div class="tech-tags">
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">ES6 Modules</span>
+                    <span class="tech-tag">HTML5 Canvas</span>
+                    <span class="tech-tag">2D game mechanics</span>
+                </div>
+            </div>
         </div>
 
-        <p>
-            "Mr. H" is an interactive, web-based educational game built from scratch to teach cybersecurity fundamentals and password safety to younger demographics. The project was an exercise in applying strict Object-Oriented Programming (OOP) paradigms and ES6 modules without relying on pre-built game engines.
-        </p>
+        <div class="project-brief">
+            <p>
+                <strong class="highlight-orange">The Objective:</strong> To teach internet safety fundamentals to young kids in an interactive and fun way via a simple game
+            </p>
+            <p>
+                <strong class="highlight-cyan">The Implementation:</strong> An exercise in applying strict
+                Object-Oriented Programming (OOP) paradigms and ES6 modules without relying on pre-built game engines.
+                Features a custom collision detection system and a native state-management loop.
+            </p>
+        </div>
 
-        <img src="src/mr-h-overworld.png" alt="Top-down RPG environmental rendering" class="project-image">
-        <p class="image-caption">Fig 1. Environmental state rendering and 2D spatial positioning.</p>
+        <h3>Technical Specifications</h3>
+        <div class="tech-module" style="margin-bottom: 40px;">
+            <ul class="realistic-specs">
+                <li>Custom collision detection engine developed with native coordinate mathematics.</li>
+                <li>Object-driven minigame logic utilizing TypeScript classes for entity behavior.</li>
+                <li>Engineered scene routing and transition logic between Start, Regional, and End phases.</li>
+                <li>Managed team restructuring by reassessing codebase architecture mid-cycle.</li>
+            </ul>
+        </div>
 
-        <img src="src/mr-h-physics.png" alt="Active game loop with collision detection" class="project-image">
-        <p class="image-caption">Fig 2. Active game loop demonstrating collision detection, gravity physics, and state timers.</p>
+        <section class="visibility-spread">
+            <h3 style="border-bottom: 1px solid #1f3a47; padding-bottom: 8px;">Physics & Environment</h3>
 
-        <h3>Technical Implementation</h3>
-        <ul>
-            <li><strong>Core Mechanics & Physics:</strong> Developed the underlying collision detection engine from the ground up and implemented localized, object-driven minigame logic.</li>
-            <li><strong>State Management:</strong> Co-engineered the application's state transitions and scene routing, finalizing the logic loop between the Start, Regional, and End phases to ensure seamless memory management between states.</li>
-            <li><strong>Agile Crisis Recovery:</strong> Spearheaded project recovery during a critical mid-cycle team restructuring. Rapidly reassessed the codebase, redistributed technical tasks, and increased code velocity to ensure a successful final deployment.</li>
-        </ul>
+            <figure class="bjarne-figure">
+                <img src="src/mr-h-overworld.png" alt="Top-down RPG environmental rendering">
+                <figcaption>
+                    <strong>Environmental Rendering:</strong> Handling 2D spatial positioning and environmental state
+                    rendering.
+                </figcaption>
+            </figure>
+
+            <figure class="bjarne-figure">
+                <img src="src/mr-h-physics.png" alt="Active game loop with collision detection">
+                <figcaption>
+                    <strong>Game Loop:</strong> Real-time collision detection and state timers in
+                    action.
+                </figcaption>
+            </figure>
+        </section>
     </main>
 
 </body>
+
 </html>
