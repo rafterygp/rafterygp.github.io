@@ -461,3 +461,36 @@ li { margin-bottom: 8px; font-size: 0.95em; }
     border-bottom: 1px solid #ff9900;
     color: #ff9900;
 }
+
+/* COUNTRIES UI */
+.country-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.country-tag {
+    font-size: 0.85em;
+    padding: 4px 10px;
+    background: rgba(102, 252, 241, 0.05);
+    border: 1px solid #1f3a47;
+    color: #66fcf1;
+}
+
+/* LOG ENTRIES AREA */
+.log-entries {
+    margin-top: 40px;
+    border-top: 1px solid #1f3a47;
+    padding-top: 20px;
+}
+
+.entry-placeholder {
+    padding: 40px;
+    text-align: center;
+    border: 1px dashed #1f3a47;
+    color: #45a29e;
+    font-style: italic;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
