@@ -394,5 +394,103 @@ li { margin-bottom: 8px; font-size: 0.95em; }
     background-color: rgba(102, 252, 241, 0.05);
 }
 
+/* TECHNOLOGY TAGS */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 15px 0;
+}
 
+.tech-tag {
+    font-size: 0.75em;
+    font-family: 'Consolas', monospace;
+    color: #66fcf1;
+    background: rgba(102, 252, 241, 0.05);
+    border: 1px solid rgba(31, 58, 71, 0.8);
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
 
+/* Hover effect for tags inside interactive boxes */
+.grid-box:hover .tech-tag {
+    border-color: #ff9900;
+    color: #ff9900;
+    background: rgba(255, 153, 0, 0.05);
+}
+
+/* Special styling for "In Progress" or main tech in modules */
+.tech-module .tech-tag {
+    background: rgba(31, 58, 71, 0.3);
+}
+
+/* PROJECT META GRID */
+.project-metadata {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    background: rgba(31, 58, 71, 0.15);
+    border: 1px solid #1f3a47;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.75em;
+    text-transform: uppercase;
+    color: #45a29e; /* Muted Cyan */
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.meta-value {
+    font-size: 0.95em;
+    color: #e2a73a; /* High-contrast Orange */
+}
+
+/* Repository link specific styling */
+.meta-value a {
+    border-bottom: 1px solid #ff9900;
+    color: #ff9900;
+}
+
+/* COUNTRIES UI */
+.country-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.country-tag {
+    font-size: 0.85em;
+    padding: 4px 10px;
+    background: rgba(102, 252, 241, 0.05);
+    border: 1px solid #1f3a47;
+    color: #66fcf1;
+}
+
+/* LOG ENTRIES AREA */
+.log-entries {
+    margin-top: 40px;
+    border-top: 1px solid #1f3a47;
+    padding-top: 20px;
+}
+
+.entry-placeholder {
+    padding: 40px;
+    text-align: center;
+    border: 1px dashed #1f3a47;
+    color: #45a29e;
+    font-style: italic;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
