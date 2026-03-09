@@ -31,6 +31,7 @@
                 <span class="meta-value"><a href="https://github.com/rafterygp/jrcz-extraction-pipeline"
                         target="_blank">[ View Source ]</a></span>
             </div>
+            
             <div class="meta-item" style="grid-column: 1 / -1;">
                 <span class="meta-label">Stack</span>
                 <div class="tech-tags">
@@ -44,32 +45,20 @@
             </div>
         </div>
 
-        <div class="project-brief">
-            <p>
-                <strong class="highlight-orange">The Problem:</strong> The JRCZ data science lab models localized
-                environmental phenomena. To do so effectively, researchers previously had to manually filter through
-                nationwide GeoPackage (GPKG) databases to extract specific political boundaries—a localized process
-                taking hours per request.
-            </p>
-            <p>
-                <strong class="highlight-cyan">The Solution:</strong> I engineered an automated data ingestion and
-                retrieval application to replace this manual workflow. This process is now automated with near-instant
-                spatial extraction of complex coordinate arrays into standard GeoJSON structures. The software is
-                currently in active production use.
-            </p>
-        </div>
+        <h2>Project Architecture</h2>
+        <p>
+            A high-responsivity spatial data engine designed to serve hierarchical geographical boundaries. The system provides researchers with a streamlined interface to visualize and isolate administrative zones across the Netherlands.
+        </p>
+        <ul>
+            <li><strong>Hierarchical Navigation:</strong> Dynamic switching between Provincie, Gemeente, and Buurt data layers.</li>
+            <li><strong>Optimized Delivery:</strong> RESTful endpoints serve localized GeoJSON payloads, minimizing frontend memory overhead.</li>
+            <li><strong>Researcher Workflow:</strong> Dual-mode selection via direct map interaction (Visual) or text-based search (Query).</li>
+        </ul>
 
-        <h3>Technical Specifications</h3>
-        <div class="tech-module" style="margin-bottom: 40px;">
-            <ul class="realistic-specs">
-                <li>Robust file ingestion processing to handle nationwide spatial data inputs.</li>
-                <li>Implement basic user authentication with password hashing and session security.</li>
-                <li>Design a localized data retrieval pipeline of complex polygon data to replace manual hours.</li>
-                <li>Algorithmic transformation to parse spatial data from an existing SQLite-based GeoPackage.</li>
-                <li>Co-designed data-filtering logic based on common localized phenomena.</li>
-                <li>Managed parallel local (SQLite) and main (MySQL) database environments with Laravel tools.</li>
-            </ul>
-        </div>
+<section>
+        <h2>Technical Implementation</h2>
+        <p>The backend manages a repository of spatial datasets, routing requests based on administrative hierarchy to ensure that only the necessary coordinate arrays are transmitted to the client-side Leaflet.js renderer.</p>
+    </section>
 
         <section class="visibility-spread">
             <h3 style="border-bottom: 1px solid #1f3a47; padding-bottom: 8px;">Interface & Spatial Rendering</h3>
