@@ -15,7 +15,7 @@
     </nav>
 
     <main>
-        <h2>JRCZ GPKG extractor pipleine</h2>
+        <h2>JRCZ GeoJSON Spatial Delivery Pipeline</h2>
 
         <div class="project-metadata">
             <div class="meta-item">
@@ -37,55 +37,52 @@
                 <div class="tech-tags">
                     <span class="tech-tag">PHP 8.2</span>
                     <span class="tech-tag">Laravel</span>
-                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">JavaScript (Vite)</span>
                     <span class="tech-tag">GeoJSON</span>
-                    <span class="tech-tag">SQLite</span>
-                    <span class="tech-tag">GPKG</span>
+                    <span class="tech-tag">Leaflet.js</span>
                 </div>
             </div>
         </div>
 
         <h2>Project Architecture</h2>
         <p>
-            A high-responsivity spatial data engine designed to serve hierarchical geographical boundaries. The system provides researchers with a streamlined interface to visualize and isolate administrative zones across the Netherlands.
+            A high-performance spatial data router designed to serve and extract authoritative Dutch geographical boundaries. The architecture operates as a static GeoJSON Delivery API, natively routing, rendering, and exporting complex <code>Polygon</code> and <code>MultiPolygon</code> geometries to the client.
         </p>
-        <ul>
-            <li><strong>Hierarchical Navigation:</strong> Dynamic switching between Provincie, Gemeente, and Buurt data layers.</li>
-            <li><strong>Optimized Delivery:</strong> RESTful endpoints serve localized GeoJSON payloads, minimizing frontend memory overhead.</li>
-            <li><strong>Researcher Workflow:</strong> Dual-mode selection via direct map interaction (Visual) or text-based search (Query).</li>
+        
+        <ul style="margin-bottom: 30px;">
+            <li><strong>Hierarchical Boundary Modes:</strong> Dynamic data layer switching allowing users to drill down from macro <strong>Province</strong> (Provincie) borders, into specific <strong>Municipalities</strong> (Gemeente), and down to localized <strong>Neighborhoods</strong> (Buurt).</li>
+            <li><strong>Personalized Extraction Pipeline:</strong> Users can isolate custom combinations of political boundaries and download exact, coordinate-based GeoJSON polygons representing their personalized selection.</li>
+            <li><strong>State Management:</strong> Client-side logic safely serializes raw multi-axis coordinates through the DOM, preserving geometry fidelity across user sessions and selections.</li>
         </ul>
 
-<section>
-        <h2>Technical Implementation</h2>
-        <p>The backend manages a repository of spatial datasets, routing requests based on administrative hierarchy to ensure that only the necessary coordinate arrays are transmitted to the client-side Leaflet.js renderer.</p>
-    </section>
+        <section>
+            <h2>Technical Implementation</h2>
+            <p>The backend manages a repository of static GeoJSON files, acting as an optimized file router. It routes HTTP requests based on the selected administrative hierarchy (Province, Gemeente, or Buurt), transmitting only the necessary coordinate arrays to the Leaflet.js renderer. This minimizes memory overhead and latency. During extraction, the Vite-powered frontend parses the stored geometry of the user's custom selection and dynamically assembles a pristine `.geojson` file for immediate local download.</p>
+        </section>
 
         <section class="visibility-spread">
             <h3 style="border-bottom: 1px solid #1f3a47; padding-bottom: 8px;">Interface & Spatial Rendering</h3>
-            <p style="margin-bottom: 40px;">The map interface was designed to cleanly parse high-density polygon data,
-                breaking down complex nationwide coordinates into an easily readable spread.</p>
+            <p style="margin-bottom: 40px;">The map interface is engineered to cleanly parse high-density polygon data, breaking down complex nationwide coordinates into an easily readable and selectable spread.</p>
 
             <figure class="bjarne-figure">
                 <img src="src/searchResults.png" alt="Map interface showing distinct search result clusters.">
                 <figcaption>
                     <strong>Search Cluster View:</strong> Breaks down search results to increase localized parseability
-                    of complex data.
+                    of complex polygon boundaries.
                 </figcaption>
             </figure>
 
             <figure class="bjarne-figure">
                 <img src="src/provinceSelection.png" alt="Map interface with whole provinces highlighted.">
                 <figcaption>
-                    <strong>Province Selection:</strong> Filter whole provinces from a nationwide GeoPackage with a
-                    quick localized selection.
+                    <strong>Hierarchical Selection:</strong> Filter and extract boundaries at the Province, Gemeente, or Buurt level with a quick localized selection.
                 </figcaption>
             </figure>
 
             <figure class="bjarne-figure">
                 <img src="src/gemeente&hover.png" alt="Map interface with specific municipal highlight on hover.">
                 <figcaption>
-                    <strong>Gemeente & Hover:</strong> Provides visual quick Municipality identification and a localized
-                    query on hover.
+                    <strong>Interactive Identification:</strong> Provides visual quick boundary identification and localizes the coordinate boundary on hover.
                 </figcaption>
             </figure>
         </section>
